@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/login_screen.dart';
 import '../screens/registration_screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';
@@ -65,9 +66,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                   tag: 'logo',
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
+                TypewriterAnimatedTextKit(
+                  text: ['Flash Chat'],
+                  textStyle: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),

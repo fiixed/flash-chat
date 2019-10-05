@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-
 class LoginScreen extends StatefulWidget {
   static String id = 'login_screen';
 
@@ -24,18 +23,20 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
-              child: Padding(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Hero(
-                child: Container(
-                  height: 200.0,
-                  child: Image.asset('images/logo.png'),
+              Flexible(
+                child: Hero(
+                  child: Container(
+                    height: 200.0,
+                    child: Image.asset('images/logo.png'),
+                  ),
+                  tag: 'logo',
                 ),
-                tag: 'logo',
               ),
               SizedBox(
                 height: 48.0,
@@ -46,8 +47,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 onChanged: (value) {
                   email = value;
                 },
-                decoration: kTextFieldDecoration.copyWith(
-                    hintText: 'Enter your email'),
+                decoration:
+                    kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
               ),
               SizedBox(
                 height: 8.0,
@@ -80,8 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushNamed(context, ChatScreen.id);
                     }
                     setState(() {
-                    showSpinner = false;
-                  });
+                      showSpinner = false;
+                    });
                   } catch (e) {
                     print(e);
                   }
